@@ -1,3 +1,32 @@
-opencv-python
-numpy
-imutils
+para conseguir rodar esse código faça isso 
+Passo 1 — Atualizar o sistema
+
+sudo apt update && sudo apt upgrade -y
+
+Passo 2 — Instalar Python e dependências básicas
+
+sudo apt install -y python3-pip python3-venv python3-dev \
+libjpeg-dev libpng-dev libtiff-dev libavcodec-dev libavformat-dev libswscale-dev \
+libv4l-dev v4l-utils libxvidcore-dev libx264-dev gfortran libgtk-3-dev
+
+Isso garante que você tenha suporte a imagens, vídeo e GUI.
+
+Passo 3 — Instalar OpenCV do sistema
+
+sudo apt install -y python3-opencv
+
+Essa versão funciona no Pi 5 e já vem com suporte a cv2.imshow.
+
+Passo 4 — Criar o ambiente virtual
+python3 -m venv --system-site-packages env
+source env/bin/activate
+
+O --system-site-packages faz com que o virtualenv enxergue o OpenCV instalado pelo apt.
+
+Passo 5 — Testar o OpenCV
+python3 -c "import cv2; print('OpenCV instalado, versão:', cv2.__version__)"
+
+Deve mostrar algo como: OpenCV instalado, versão: 4.7.0 (ou versão do apt).
+
+Passo 6 — Rodar seu código
+python3 linef.py
